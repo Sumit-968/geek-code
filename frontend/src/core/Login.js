@@ -25,8 +25,22 @@ const Login = () => {
   const handleChange = (name) => (e) => {
     setvalues({ ...values, error: "", [name]: e.target.value });
   };
+
+  //on unsucessfull loggin with google 
+  const onGoogleNotLogin = (result)  => {
+    toast(`${result}`, {
+      type: "error",
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
   
-  //on loggin with google
+  //on sucessfull loggin with google
   const onGoogleLogin = async (googleData) => {
     await handleLogin(googleData)
     .then((data) => {
@@ -112,12 +126,12 @@ const Login = () => {
           </div>
           <div className="flex gap-4 item-center justify-center">
           <GoogleLogin
-          clientId='184170917855-i098ghvqvebu33v7454jted5n1qkt1r7.apps.googleusercontent.com'
+          clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
           buttonText="Log in with Google"
           onSuccess={onGoogleLogin}
-          onFailure={onGoogleLogin}
+          onFailure={onGoogleNotLogin}
           cookiePolicy={'single_host_origin'}
-      />
+      ></GoogleLogin>
           </div>
           <div className="mt-8">
             <form action="#" autoComplete="off">

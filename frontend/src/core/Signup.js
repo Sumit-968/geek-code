@@ -58,8 +58,8 @@ const Signup = () => {
   const signupForm = () => {
     return(
       <div className="flex justify-center my-20 mx-5 md:mx-0">
-        <div className="flex flex-col w-full max-w-md px-4 py-8 bg-white rounded-lg shadow-2xl dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10">
-          <div className="self-center mb-6 text-xl font-light text-gray-600 sm:text-2xl dark:text-white">
+        <div className="flex flex-col w-full max-w-md px-4 py-8 bg-white rounded-lg shadow-2xl sm:px-6 md:px-8 lg:px-10">
+          <div className="self-center mb-6 text-xl font-light text-gray-600 sm:text-2xl ">
             Create Your Account
           </div>
           <div className="mt-8">
