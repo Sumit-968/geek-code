@@ -17,7 +17,7 @@ const UserCreatedCards = () => {
 
   useEffect(() => {
     fetchCards();
-  }, []);
+  }, [isDeleted]);
 
   //fetch user created cards from server
   const fetchCards = async () => {
