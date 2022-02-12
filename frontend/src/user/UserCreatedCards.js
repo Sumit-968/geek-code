@@ -7,6 +7,7 @@ import LoadingCard from "../card/LoadingCard";
 
 const UserCreatedCards = () => {
   const [mycards, setMycards] = useState([]);
+  const [isDeleted, setIsDeleted] = useState(false);
   const [loading, setLoading] = useState(true);
   const [viewAllCommand, setViewAllCommand] = useState(false);
   const [viewAllShortcut, setViewAllShortcut] = useState(false);
@@ -38,10 +39,30 @@ const UserCreatedCards = () => {
     await deleteCard({ id })
       .then((data) => {
         if (data.error) {
-          console.log(data.error);
-          console.log("Unsucessfull");
+          toast(`${data.error}`, {
+            type: "error",
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+          setIsDeleted(false);
+
         } else {
-          console.log("Successfull");
+          toast(`Deleted Successfully`, {
+            type: "success",
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+          setIsDeleted(true);
         }
       })
       .catch((err) => console.log(err));
