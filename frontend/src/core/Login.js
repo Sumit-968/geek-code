@@ -28,16 +28,7 @@ const Login = () => {
 
   //on unsucessfull loggin with google 
   const onGoogleNotLogin = (result)  => {
-    toast(`${result}`, {
-      type: "error",
-      position: "top-right",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
+    console.log(result);
   }
   
   //on sucessfull loggin with google
@@ -109,7 +100,6 @@ const Login = () => {
   //handle redirecting user to homepage
   const performRedirect = () => {
     //redirect to user/admin homepage here after login
-
     if (didRedirect && isAuthenticated()) {
           return <Navigate to="/user" />;
       
@@ -126,7 +116,7 @@ const Login = () => {
           </div>
           <div className="flex gap-4 item-center justify-center">
           <GoogleLogin
-          clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+          clientId='184170917855-i098ghvqvebu33v7454jted5n1qkt1r7.apps.googleusercontent.com'
           buttonText="Log in with Google"
           onSuccess={onGoogleLogin}
           onFailure={onGoogleNotLogin}
