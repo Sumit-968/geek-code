@@ -11,8 +11,8 @@ const Login = () => {
   const navigate = useNavigate();
 
   const [values, setvalues] = useState({
-    email: "sumit968@gmail.com",
-    password: "123456",
+    email: "",
+    password: "",
     error: "",
     loading: false,
     didRedirect: false,
@@ -106,13 +106,13 @@ const Login = () => {
   const loginForm = () => {
     return (
       <div className="flex justify-center my-20 mx-5 md:mx-0">
-        <div className="flex flex-col w-full max-w-md px-4 py-8 bg-white rounded-lg shadow-2xl dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10">
-          <div className="self-center mb-6 text-xl font-light text-gray-600 sm:text-2xl dark:text-white">
+        <div className="flex flex-col w-full max-w-md px-4 py-8 bg-white rounded-lg shadow-2xl sm:px-6 md:px-8 lg:px-10">
+          <div className="self-center mb-6 text-xl font-light text-gray-600 sm:text-2xl ">
             Login To Your Account
           </div>
           <div className="flex gap-4 item-center justify-center">
           <GoogleLogin
-          clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+          clientId='184170917855-i098ghvqvebu33v7454jted5n1qkt1r7.apps.googleusercontent.com'
           buttonText="Log in with Google"
           onSuccess={onGoogleLogin}
           onFailure={onGoogleLogin}

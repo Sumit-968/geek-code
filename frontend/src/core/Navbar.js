@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { isAuthenticated, logout } from "../auth/helper/index";
-import {GoogleLogout} from "react-google-login"
+
 
 const Navbar = () => {
   const [isOpen, setisOpen] = useState(false);
@@ -43,7 +43,7 @@ const Navbar = () => {
               navigate("/");
             }}
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 mt-2 ml-2"
+            className="h-8 w-8 mt-1 mr-2 ml-2 "
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -65,14 +65,14 @@ const Navbar = () => {
             }}
             onChange={handleSearch("search")}
             value={search}
-            className="flex-grow px-4 rounded-l-full rounded-r-full text-sm focus:outline-none"
+            className="flex-grow rounded-l-full rounded-r-full text-sm focus:outline-none"
           />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             onClick={() => {
               navigate(`/search${query}`);
             }}
-            className="h-5 w-5 mt-2 mr-2"
+            className="h-8 w-8 mt-1 ml-2 mr-2"
             viewBox="0 0 20 20"
             fill="currentColor"
           >
@@ -142,7 +142,7 @@ const Navbar = () => {
                 <div
                   className={`${
                     isOpen ? "absolute" : "hidden"
-                  } origin-top-right right-0 mt-4 w-56 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5`}
+                  } origin-top-right right-0 mt-4 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5`}
                 >
                   <ul
                     className="py-1 "
@@ -151,7 +151,7 @@ const Navbar = () => {
                     aria-labelledby="options-menu"
                   >
                     <li
-                      className="block cursor-default px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600"
+                      className="block cursor-default px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                       role="menuitem"
                       onClick={() => {
                         navigate("/user/cards");
@@ -162,7 +162,7 @@ const Navbar = () => {
                       </span>
                     </li>
                     <li
-                      className="block cursor-default px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600"
+                      className="block cursor-default px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                       role="menuitem"
                       onClick={() => {
                         navigate("/user/saved");
@@ -173,7 +173,7 @@ const Navbar = () => {
                       </span>
                     </li>
                     <li
-                      className="block cursor-default px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600"
+                      className="block cursor-default px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                       role="menuitem"
                       onClick={logoutUser}
                     >
@@ -193,3 +193,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+//dark

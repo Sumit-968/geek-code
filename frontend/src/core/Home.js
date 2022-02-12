@@ -36,7 +36,7 @@ const Home = () => {
   //all command cards to display
   const moreCommandCards = mycards.map((element) => {
     if (element.cardType === "command") {
-       (
+      return (
         <div className="p-8 lg:w-1/4 md:w-1/2" key={element._id}>
           <Card
             title={element.title}
@@ -58,7 +58,7 @@ const Home = () => {
   const lessCommandCards = mycards.map((element) => {
     if (element.cardType === "command" && countCommandCards < 8) {
       countCommandCards++;
-       (
+      return (
         <div className="p-8 lg:w-1/4 md:w-1/2" key={element._id}>
           <Card
             title={element.title}
@@ -135,7 +135,7 @@ const Home = () => {
 
   return (
     <Base>
-      <div className="bg-violet-500 dark:bg-gray-800 flex relative z-20 items-center">
+      <div className="bg-violet-500 flex relative z-20 items-center">
         <div className="container mx-auto px-6 flex flex-col justify-between items-center relative py-8">
           <div className="flex flex-col">
             <h1 className="font-light w-full uppercase text-center text-4xl sm:text-5xl text-white">

@@ -7,7 +7,9 @@ import LoadingCard from "../card/LoadingCard";
 
 const UserCreatedCards = () => {
   const [mycards, setMycards] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [viewAllCommand, setViewAllCommand] = useState(false);
+  const [viewAllShortcut, setViewAllShortcut] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -57,8 +59,10 @@ const UserCreatedCards = () => {
     );
   };
 
-  //user created command cards
-  const commandCards = mycards.map((element) => {
+  //count the number of command cards
+  var countCommandCards = 0;
+  //user created more command cards
+  const moreCommandCards = mycards.map((element) => {
     if (element.cardType === "command") {
       return (
         <div className="p-8 lg:w-1/4 md:w-1/2" key={element._id}>
@@ -97,10 +101,93 @@ const UserCreatedCards = () => {
     }
   });
 
-  ///user created shortcut cards
-  const shortcutCards = mycards.map((element) => {
+  //user created less command cards
+  const lessCommandCards = mycards.map((element) => {
+    if (element.cardType === "command" && countCommandCards < 8) {
+      countCommandCards++;
+      return (
+        <div className="p-8 lg:w-1/4 md:w-1/2" key={element._id}>
+          <Card
+            title={element.title}
+            category={element.category}
+            description={element.description}
+            authorName={element.authorName}
+            code={element.code}
+            createdAt={element.createdAt}
+            likes={element.likes.length}
+            saves={element.saves.length}
+            type={element.cardType}
+            id={element._id}
+          />
+          <div className="flex items-center justify-center gap-4 w-full mt-4">
+            <button
+              onClick={() => deleteThisCard(element._id)}
+              type="button"
+              className="py-2 px-6  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white  transition ease-in duration-200 text-center text-xs font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+            >
+              Delete
+            </button>
+            <button
+              onClick={() => {
+                navigate(`/user/card/update/${element._id}`);
+              }}
+              type="button"
+              className="py-2 px-6  bg-white hover:bg-gray-100 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-indigo-500 text-white  transition ease-in duration-200 text-center text-xs font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+            >
+              Edit
+            </button>
+          </div>
+        </div>
+      );
+    }
+  });
+
+  //count the number of shortcut cards
+  var countShortcutCards = 0;
+  ///user created more shortcut cards
+  const moreShortcutCards = mycards.map((element) => {
     if (element.cardType === "shortcut") {
       return (
+        <div className="p-8 lg:w-1/4 md:w-1/2" key={element._id}>
+          <Card
+            title={element.title}
+            category={element.category}
+            description={element.description}
+            authorName={element.authorName}
+            code={element.code}
+            likes={element.likes.length}
+            saves={element.saves.length}
+            type={element.cardType}
+            id={element._id}
+          />
+          <div className="flex items-center justify-center gap-4 w-full mt-4">
+            <button
+              type="button"
+              onClick={() => deleteThisCard(element._id)}
+              className="py-2 px-6  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white  transition ease-in duration-200 text-center text-xs font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+            >
+              Delete
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                navigate(`/user/card/update/${element._id}`);
+              }}
+              className="py-2 px-6  bg-white hover:bg-gray-100 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-indigo-500 text-white  transition ease-in duration-200 text-center text-xs font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+            >
+              Edit
+            </button>
+          </div>
+        </div>
+      );
+    }
+  });
+
+  //user created less shortcut  cards
+  const lessShortcutCards = mycards.map((element) => {
+    if (element.cardType === "shortcut" && countShortcutCards < 8) {
+      countShortcutCards++;
+      return  (
         <div className="p-8 lg:w-1/4 md:w-1/2" key={element._id}>
           <Card
             title={element.title}
@@ -155,9 +242,18 @@ const UserCreatedCards = () => {
             />
           </svg>
           <p className="text-2xl text-gray-900 font-bold">Commands</p>
+          <p
+          onClick={() => setViewAllCommand(!viewAllCommand)}
+          className="text-xs text-gray-900 font-bold mx-2 mt-3 hover:underline hover:cursor-pointer hover:text-violet-600"
+        >
+          {!viewAllCommand ? `View All` : `View Less`}
+        </p>
         </div>
         <div className="flex flex-row flex-wrap justify-center">
-          {loading ? loadingCards() : commandCards}
+        {loading
+          ? loadingCards()
+          : (!viewAllCommand && lessCommandCards) ||
+            (viewAllCommand && moreCommandCards)}
         </div>
       </div>
       <div className="container px-8 py-24 pt-0">
@@ -177,9 +273,18 @@ const UserCreatedCards = () => {
             />
           </svg>
           <p className="text-2xl text-gray-900 font-bold">ShortCuts</p>
+          <p
+            onClick={() => setViewAllShortcut(!viewAllShortcut)}
+            className="text-xs text-gray-900 font-bold mx-2 mt-3 hover:underline hover:cursor-pointer hover:text-violet-600"
+          >
+            {!viewAllShortcut ? `View All` : `View Less`}
+          </p>
         </div>
         <div className="flex flex-row flex-wrap justify-center">
-          {loading ? loadingCards() : shortcutCards}
+        {loading
+          ? loadingCards()
+          : (!viewAllShortcut && lessShortcutCards) ||
+            (viewAllShortcut && moreShortcutCards)}
         </div>
       </div>
     </Base>

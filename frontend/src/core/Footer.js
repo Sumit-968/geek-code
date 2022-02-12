@@ -13,7 +13,9 @@ const Footer = () => {
           </nav>
           <div className="md:hidden mt-4 mx-auto w-11 h-px rounded-full"></div>
           <div className="mt-4 md:mt-0 flex-1 flex items-center justify-center md:border-r border-gray-100">
-            <a className="hover:text-primary-gray-20">
+            <a className="hover:text-primary-gray-20"
+            href="https://github.com/Sumit-968"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="30"
