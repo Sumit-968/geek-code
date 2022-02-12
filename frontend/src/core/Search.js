@@ -210,8 +210,8 @@ const Search = () => {
 
       <div class="mx-auto bg-gray-800 p-6 h-36 w-64 rounded-2xl shadow-2xl text-center">
         <div class="flex flex-col h-full items-center justify-center">
-          <div class="flex h-full flex-col justify-center mx-2">
-            <div className="mx-1">
+          <div class="flex h-full flex-col justify-center">
+            <div className="mx-1 my-1">
               <select
                 class="block text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500"
                 name="category"
@@ -236,7 +236,7 @@ const Search = () => {
               <option value="Other">Other</option>
               </select>
             </div>
-            <div>
+            <div className="mx-1 my-1">
               <select
                 class="block text-gray-700 py-2 px-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500"
                 onChange={handleChange("cardType")}
