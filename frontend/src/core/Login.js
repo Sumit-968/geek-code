@@ -5,7 +5,7 @@ import Base from "./Base";
 import { login, authenticate, handleLogin, isAuthenticated } from "../auth/helper/index";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
-require('dotenv').config()
+
 
 const Login = () => {
   const navigate = useNavigate();
