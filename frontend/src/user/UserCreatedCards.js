@@ -4,6 +4,8 @@ import Base from "../core/Base";
 import { useNavigate } from "react-router-dom";
 import { deleteCard, getAllUserCard } from "./helper/userapi";
 import LoadingCard from "../card/LoadingCard";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 
 const UserCreatedCards = () => {
   const [mycards, setMycards] = useState([]);
@@ -246,6 +248,7 @@ const UserCreatedCards = () => {
 
   return (
     <Base>
+    <ToastContainer />
       <div className="container px-8 py-24">
         <div className="px-8 flex flex-row">
           <svg
