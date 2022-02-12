@@ -179,13 +179,11 @@ exports.deleteCard = BigPromise(async (req, res, next) => {
       status: res.statusCode
     });
   }
-
-  
-  
-
   await card.remove();
 
   res.status(200).json({
     success: true,
   });
 }); 
+
+

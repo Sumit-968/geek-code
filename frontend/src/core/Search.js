@@ -218,10 +218,22 @@ const Search = () => {
                 onChange={handleChange("category")}
                 value={category}
               >
-                <option value="">Category</option>
-                <option value="VsCode">VsCode</option>
-                <option value="GitHub">GitHub</option>
-                <option value="ReactJs">ReactJs</option>
+              <option value="">Category</option>
+              <option value="VsCode">VsCode</option>
+              <option value="GitHub">GitHub</option>
+              <option value="ReactJs">ReactJs</option>
+              <option value="Ubuntu">Ubuntu</option>
+              <option value="MsExcel">MsExcel</option>
+              <option value="AdobePhotoshop">AdobePhotoshop</option>
+              <option value="Figma">Figma</option>
+              <option value="AdobeIllustrator">AdobeIllustrator</option>
+              <option value="Basic Keyboard">Basic Keyboard</option>
+              <option value="Linux">Linux</option>
+              <option value="CommandPrompt">CommandPrompt</option>
+              <option value="NodePackageManager">NodePackageManager</option>
+              <option value="NodeJs">NodeJs</option>
+              <option value="MsWord">MsWord</option>
+              <option value="Other">Other</option>
               </select>
             </div>
             <div>

@@ -5,7 +5,7 @@ import Base from "./Base";
 import { login, authenticate, handleLogin, isAuthenticated } from "../auth/helper/index";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
-
+require('dotenv').config()
 
 const Login = () => {
   const navigate = useNavigate();
@@ -116,7 +116,7 @@ const Login = () => {
           </div>
           <div className="flex gap-4 item-center justify-center">
           <GoogleLogin
-          clientId='184170917855-i098ghvqvebu33v7454jted5n1qkt1r7.apps.googleusercontent.com'
+          clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
           buttonText="Log in with Google"
           onSuccess={onGoogleLogin}
           onFailure={onGoogleNotLogin}

@@ -51,12 +51,12 @@ const cardSchema = new mongoose.Schema({
     type: String,
     required: [
       true,
-      "please select category from - VsCode, GitHub, ReactJs",
+      "please select category from given categories",
     ],
     enum: {
-      values: ["VsCode", "GitHub", "ReactJs"],
+      values: ["VsCode", "GitHub", "ReactJs", "MsWord", "MsExcel", "AdobePhotoshop", "Figma", "AdobeIllustrator", "Basic Keyboard", "Linux", "CommandPrompt", "Ubuntu", "NodeJs", "NodePackageManager", "Other"],
       message:
-        "please select category ONLY from - VsCode, GitHub, ReactJs",
+        "please select category ONLY from given categories",
     },
   }
 });
