@@ -175,14 +175,11 @@ const Navbar = () => {
                     <li
                       className="block cursor-default px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600"
                       role="menuitem"
+                      onClick={logoutUser}
                     >
-                      <span className="flex flex-col">
-                        <GoogleLogout
-                        clientId="184170917855-i098ghvqvebu33v7454jted5n1qkt1r7.apps.googleusercontent.com"
-                        buttonText="Logout"
-                        onLogoutSuccess={logoutUser}
-                        />
-                      </span>
+                    <span className="flex flex-col">
+                    <span>Logout</span>
+                  </span>
                     </li>
                   </ul>
                 </div>
